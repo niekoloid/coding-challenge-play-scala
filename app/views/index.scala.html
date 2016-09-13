@@ -1,7 +1,3 @@
-@*
- * This template takes a single argument, a String containing a
- * message to display.
- *@
 @(message: String)
 
 @*
@@ -9,12 +5,18 @@
  * argument is a `String` with the title of the page, the second
  * argument is an `Html` object containing the body of the page.
  *@
-@main("Welcome to Play") {
 
-    @*
-     * Get an `Html` object by calling the built-in Play welcome
-     * template and passing a `String` message.
-     *@
-    @play20.welcome(message, style = "Scala")
+
+@main("LeadIQ Coding Challenge") {
+
+   <h1>Hello!</h1>
+   <p>@message</p>
+   <p>Sample page built by Sun</p>
+
+   <ol>
+   	<li>one</li>
+   	<li>two</li>
+   	<li>three</li>
+   </ol>
 
 }
