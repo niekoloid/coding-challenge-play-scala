@@ -9,13 +9,13 @@ class Application extends Controller {
   // PUT /transactionservice/transaction/$transaction_id
   def putTransaction(transaction_id:Long) = Action {  request =>
 
-    (request.body / "tp").asOpt[String].map{ tp =>
+    (request.body \ "amount").asOpt[String].map{ amount =>
 
-      Ok(Json.toJson(Map("status"->"OK", "message"->("Hello" + tp))))
+      Ok(Json.toJson(Map("status"->"OK", "message"->("Hello" + amount))))
 
     }.getOrElse{
 
-      BadRequest(Json.toJson(Map("status"->"NG", "message"->"Missing parameter [tp]")))
+      BadRequest(Json.toJson(Map("status"->"NG", "message"->"Missing parameter [amount]")))
     }
 
   }
