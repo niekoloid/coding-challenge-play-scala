@@ -6,10 +6,6 @@ import play.api.libs.json.Json
 
 class Application extends Controller {
 
-  def index = Action {
-    Ok(views.html.index("Your new application is ready."))
-  }
-
   // PUT /transactionservice/transaction/$transaction_id
   def putTransaction(transaction_id:Long) = Action {  request =>
 
