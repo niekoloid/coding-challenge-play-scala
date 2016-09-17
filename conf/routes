@@ -1,5 +1,4 @@
 # Routes
-# This file defines all application routes (Higher priority routes first)
 # ~~~~
 
 PUT		/transactionservice/transaction/$transaction_id<[0-9]+>		controllers.Application.putTransaction(transaction_id:Long)
