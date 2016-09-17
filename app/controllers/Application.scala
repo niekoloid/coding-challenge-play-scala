@@ -2,31 +2,37 @@ package controllers
 
 import play.api._
 import play.api.mvc._
+import play.api.libs.json.Json
 
-/**
- * This controller creates an `Action` to handle HTTP requests to the
- * application's home page.
- */
- 
 class Application extends Controller {
 
   def index = Action {
     Ok(views.html.index("Your new application is ready."))
   }
 
+  // PUT /transactionservice/transaction/$transaction_id
+  def putTransaction(transaction_id:Long) = Action {  request =>
+
+    (request.body / "tp").asOpt[String].map{ tp =>
+
+      Ok(Json.toJson(Map("status"->"OK", "message"->("Hello" + tp))))
+
+    }.getOrElse{
+
+      BadRequest(Json.toJson(Map("status"->"NG", "message"->"Missing parameter [tp]")))
+    }
+
+  }
+
   // GET /transactionservice/transaction/$transaction_id
   def getTransaction(transaction_id:Long) = Action {	
+    
     Ok(views.html.index("get id: " + transaction_id))
   }
 
-  // PUT /transactionservice/transaction/$transaction_id
-  def putTransaction(transaction_id:Long) = Action {	
-    Ok(views.html.index("put id: " + transaction_id))
-  }
-
   // GET /transactionservice/types/$type
-  def getTypes(`type`:String) = Action {	
-    Ok(views.html.index("type: " + `type`))
+  def getTypes(tp:String) = Action {	
+    Ok(views.html.index("type: " + tp))
   }
 
   // GET /transactionservice/sum/$transaction_id

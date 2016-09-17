@@ -2,8 +2,6 @@
 # This file defines all application routes (Higher priority routes first)
 # ~~~~
 
-GET     /                           								controllers.Application.index
-
 PUT		/transactionservice/transaction/$transaction_id<[0-9]+>		controllers.Application.putTransaction(transaction_id:Long)
 GET		/transactionservice/transaction/$transaction_id<[0-9]+>		controllers.Application.getTransaction(transaction_id:Long)
 GET     /transactionservice/types/:type								controllers.Application.getTypes(type:String)
